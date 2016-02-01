@@ -1713,7 +1713,7 @@ static struct target_type flashcache_target = {
 	.dtr    = flashcache_dtr,
 	.map    = flashcache_map,
 	.status = flashcache_status,
-#if LINUX_VERSION_CODE < KERNEL_VERSION(4,4,0)
+#if (LINUX_VERSION_CODE < KERNEL_VERSION(4,4,0) && ( RHEL_RELEASE_CODE < RHEL_RELEASE_VERSION(7,3) ))
 	.ioctl 	= flashcache_ioctl,
 #else
 	.prepare_ioctl 	= flashcache_prepare_ioctl,
